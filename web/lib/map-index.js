@@ -43,8 +43,6 @@
 	}
 
 	function stageTwo ( file ) {
-    // Google Analytics event - heatmap upload file
-    ga('send', 'event', 'Heatmap', 'upload', undefined, file.size);
 
 		heat = L.heatLayer( [], heatOptions ).addTo( map );
 
@@ -71,7 +69,9 @@
 
 		var os = new oboe();
 
-		os.node( 'locations.*', function ( location ) {
+		os.node( 'placeVisit', function ( placeVisit ) {
+      console.log(placeVisit);
+      var location = placeVisit.location;
 			var latitude = location.latitudeE7 * SCALAR_E7,
 				longitude = location.longitudeE7 * SCALAR_E7;
 
@@ -82,6 +82,7 @@
 			if ( type === 'json' ) latlngs.push( [ latitude, longitude ] );
 			return oboe.drop;
 		} ).done( function () {
+      console.log(latlngs);
 			status( 'Generating map...' );
 			heat._latlngs = latlngs;
 
@@ -100,9 +101,6 @@
 	}
 
 	function stageThree ( numberProcessed ) {
-    // Google Analytics event - heatmap render
-    ga('send', 'event', 'Heatmap', 'render', undefined, numberProcessed);
-
 		var $done = $( '#done' );
 
 		// Change tabs :D
@@ -113,22 +111,11 @@
 		// Update count
 		$( '#numberProcessed' ).text( numberProcessed.toLocaleString() );
 
-    $( '#launch' ).click( function () {
-      var $email = $( '#email' );
-      if ( $email.is( ':valid' ) ) {
-        $( this ).text( 'Launching... ' );
-        $.post( '/heatmap/submit-email.php', {
-          email: $email.val()
-        } )
-        .always( function () {
-          $( 'body' ).addClass( 'map-active' );
-          $done.fadeOut();
-          activateControls();
-        } );
-      } else {
-        alert( 'Please enter a valid email address to proceed.' );
-      }
-    } );
+		// Launch.
+    $( 'body' ).addClass( 'map-active' );
+    $done.fadeOut();
+    activateControls();
+
 
 		function activateControls () {
 			var $tileLayer = $( '.leaflet-tile-pane' ),
@@ -179,6 +166,7 @@
 
 	function parseJSONFile( file, oboeInstance ) {
 		var fileSize = file.size;
+    console.log(fileSize);
 		var prettyFileSize = prettySize(fileSize);
 		var chunkSize = 512 * 1024; // bytes
 		var offset = 0;
@@ -216,48 +204,6 @@
 		chunkReaderBlock( offset, chunkSize, file );
 	}
 
-	/*
-        Default behavior for file upload (no chunking)	
-	*/
 
-	function parseKMLFile( file ) {
-		var fileSize = prettySize( file.size );
-		var reader = new FileReader();
-		reader.onprogress = function ( e ) {
-			var percentLoaded = Math.round( ( e.loaded / e.total ) * 100 );
-			status( percentLoaded + '% of ' + fileSize + ' loaded...' );
-		};
-
-		reader.onload = function ( e ) {
-			var latlngs;
-			status( 'Generating map...' );
-			latlngs = getLocationDataFromKml( e.target.result );
-			heat._latlngs = latlngs;
-			heat.redraw();
-			stageThree( latlngs.length );
-		}
-		reader.onerror = function () {
-			status( 'Something went wrong reading your JSON file. Ensure you\'re uploading a "direct-from-Google" JSON file and try again, or create an issue on GitHub if the problem persists. ( error: ' + reader.error + ' )' );
-		}
-		reader.readAsText( file );
-	}
-
-	function getLocationDataFromKml( data ) {
-		var KML_DATA_REGEXP = /<when>( .*? )<\/when>\s*<gx:coord>( \S* )\s( \S* )\s( \S* )<\/gx:coord>/g,
-			locations = [],
-			match = KML_DATA_REGEXP.exec( data );
-
-		// match
-		//  [ 1 ] ISO 8601 timestamp
-		//  [ 2 ] longitude
-		//  [ 3 ] latitude
-		//  [ 4 ] altitude ( not currently provided by Location History )
-		while ( match !== null ) {
-			locations.push( [ Number( match[ 3 ] ), Number( match[ 2 ] ) ] );
-			match = KML_DATA_REGEXP.exec( data );
-		}
-
-		return locations;
-	}
 
 }( jQuery, L, prettySize ) );

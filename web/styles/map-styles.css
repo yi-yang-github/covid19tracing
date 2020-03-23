@@ -86,35 +86,22 @@ img::-moz-selection {
 /* 2.1 FONTS*/
 
 @font-face {
-    font-family: PTSans;
+    font-family: 'Open Sans', sans-serif;
     font-weight: normal;
-    src: url(../fonts/PT_Sans-Web-Regular.ttf);
 }
 @font-face {
-    font-family: PTSans;
+    font-family: 'Open Sans', sans-serif;
     font-weight: bold;
-    src: url(../fonts/PT_Sans-Web-Bold.ttf);
-}
-@font-face {
-    font-family: WorkSans;
-    src: url(../fonts/WorkSans-Light.ttf);
-}
-@font-face {
-    font-family: 'Nucleo Outline';
-    src: url('../fonts/nucleo-outline.eot');
-    src: url('../fonts/nucleo-outline.eot') format('embedded-opentype'), url('../fonts/nucleo-outline.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
 }
 /* 2.2 HEADINGS */
 
 h1,
 h2,
 h3 {
-    font-family: "WorkSans", Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 body {
-    font-family: "PTSans", Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 section h2.section-heading {
     margin-top: 0;
@@ -162,7 +149,7 @@ section {
 }
 .btn-primary {
     text-transform: uppercase;
-    font-family: "WorkSans", Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-weight: 700;
     color: #fff;
 }
@@ -185,7 +172,7 @@ section {
     background-color: #1080f2;
     border-radius: 2px;
     color: white;
-    font-family: PTSans;
+    font-family: "Open Sans";
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
@@ -229,7 +216,7 @@ body.modal-open {
     background-color: white;
     border-radius: 2px;
     color: #1080f2;
-    font-family: PTSans;
+    font-family: "Open Sans";
     display: inline-block;
     text-align: center;
     font-size: 14px;
@@ -262,7 +249,7 @@ body.modal-open {
     display: inline-block;
     line-height: 36px;
     color: white;
-    font-family: PTSans;
+    font-family: "Open Sans";
     font-size: 14px;
     margin: 0 10px;
     font-weight: 700;
@@ -545,7 +532,7 @@ body.modal-open {
 }
 .navbar-default .nav li a {
     color: white;
-    font-family: PTSans;
+    font-family: "Open Sans";
     font-size: 14px;
     font-weight: 700;
     opacity: 0.7;
@@ -621,7 +608,7 @@ header .intro-text {
     padding-bottom: 50px;
 }
 header .intro-text .intro-heading {
-    font-family: PTSans;
+    font-family: "Open Sans";
     font-size: 20px;
     font-weight: 400;
     line-height: 10px;
@@ -632,7 +619,7 @@ header .intro-text {
     padding-bottom: 0;
 }
 header .intro-text .intro-lead-in {
-    font-family: WorkSans;
+    font-family: "Open Sans";
     font-size: 58px;
     font-weight: 200;
     letter-spacing: -1px;
@@ -766,7 +753,7 @@ header .intro-heading.free-heading a {
     border: none;
     border-bottom: none;
     text-align: center;
-    font-family: PTSans;
+    font-family: "Open Sans";
     font-size: 14px;
     font-weight: 700;
     height: 58px;
@@ -812,7 +799,7 @@ header .intro-heading.free-heading a {
     list-style: none;
     margin: 0;
     color: #666;
-    font-family: PTSans;
+    font-family: "Open Sans";
     font-size: 16px;
     font-weight: 400;
     line-height: 60px;
@@ -971,7 +958,7 @@ header .intro-heading.free-heading a {
     height: 230px;
     line-height: 230px;
     letter-spacing: -1px;
-    font-family: WorkSans;
+    font-family: "Open Sans";
     text-align: center;
     font-weight: 300;
     font-size: 48px;
@@ -996,7 +983,7 @@ header .intro-heading.free-heading a {
 }
 .chart-content h4 {
     color: #666;
-    font-family: PTSans;
+    font-family: "Open Sans";
     font-size: 18px;
     margin: 0;
     font-weight: 400;
@@ -1039,7 +1026,7 @@ header .intro-heading.free-heading a {
     border-radius: 2px 2px 0 0;
     text-align: center;
     color: white;
-    font-family: PTSans;
+    font-family: "Open Sans";
     font-size: 16px;
     font-weight: 700;
     line-height: 62px;
@@ -1069,7 +1056,7 @@ header .intro-heading.free-heading a {
 }
 .pricing .col-lg-3 {
     padding: 50px 0 20px 0;
-    font-family: WorkSans;
+    font-family: "Open Sans";
     font-weight: 300;
     line-height: 25px;
     color: #1080f2;
@@ -1117,7 +1104,7 @@ header .intro-heading.free-heading a {
     text-align: center;
     line-height: 1;
     color: #666;
-    font-family: PTSans;
+    font-family: "Open Sans";
     font-size: 16px;
 }
 .pricing .pricing-row.selected .pricing-option {
@@ -1194,7 +1181,7 @@ header .intro-heading.free-heading a {
     text-align: center;
     color: #333;
     margin: auto;
-    font-family: WorkSans;
+    font-family: "Open Sans";
     max-width: 850px;
 }
 .tt-content h4 {
@@ -1297,7 +1284,7 @@ header .intro-heading.free-heading a {
     margin-bottom: -50px;
 }
 .team-content h5 {
-    font-family: PTSans;
+    font-family: "Open Sans";
     font-size: 20px;
     font-weight: 700;
     line-height: 1;
@@ -1449,7 +1436,7 @@ header .intro-heading.free-heading a {
 #subscribe h3 {
     display: block;
     color: white;
-    font-family: WorkSans;
+    font-family: "Open Sans";
     letter-spacing: -1px;
     font-size: 30px;
     font-weight: 300;
@@ -1504,7 +1491,7 @@ header .intro-heading.free-heading a {
     border: 2px solid white;
     height: 50px;
     color: inherit;
-    font-family: PTSans;
+    font-family: "Open Sans";
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
@@ -1653,7 +1640,7 @@ footer {
 .lower-footer a {
     opacity: 0.2;
     color: white;
-    font-family: PTSans;
+    font-family: "Open Sans";
     font-size: 12px;
     font-weight: 400;
     line-height: 40px;
@@ -1701,7 +1688,7 @@ footer {
     max-width: 250px;
     margin-top: 30px;
     color: white;
-    font-family: PTSans;
+    font-family: "Open Sans";
     font-size: 14px;
     font-weight: 400;
     text-align: left;
@@ -1722,7 +1709,7 @@ footer {
 }
 .footer-nav a {
     color: white;
-    font-family: PTSans;
+    font-family: "Open Sans";
     font-size: 14px;
     font-weight: 700;
     padding: 0;
@@ -1755,7 +1742,7 @@ footer {
     width: 100%;
 }
 .footer-secondary-nav a {
-    font-family: PTSans;
+    font-family: "Open Sans";
     font-size: 14px;
     font-weight: 400;
     color: #fff;
@@ -2099,7 +2086,7 @@ text-transform: uppercase;
     display: block;
     margin-bottom: 2px;
     font-weight: bold;
-    font-family: WorkSans;
+    font-family: "Open Sans";
     float: left;
         -webkit-transition: 0.2s;
     -moz-transition: 0.2s;
